@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
        
-        Console.WriteLine("What is your first sname?");
+        Console.WriteLine("What is your first name?");
         string FirstName = Console.ReadLine();
         Console.WriteLine("What is your first name?");
         string LastName = Console.ReadLine();
