@@ -2,7 +2,7 @@ public class Entry
 {
     public DateTime _dateTime = DateTime.Now;
 
-    public Prompt _randomPrompt.RandomPrompt();
+    Prompt _randomPrompt = Prompt.RandomPrompt();
     // not sure what's wrong here
     public string _entryText = Console.ReadLine();
 
