@@ -4,6 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!");
+        string words = "Hi, my name is carl";
+
+        string[] split = words.Split();
+
+        Console.WriteLine(words);
+
+        foreach (string word in split)
+        {
+            Console.Write(word);
+        }
     }
 }
