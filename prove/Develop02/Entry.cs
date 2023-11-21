@@ -1,13 +1,15 @@
 public class Entry 
 {
-    public DateTime _dateTime = DateTime.Now;
+    
+    public string _date = DateTime.Now.ToString();
+    
+    public string _prompt = Prompt.GetRandomPrompt();
+    
+    public string _entryText;
 
-    Prompt _randomPrompt = Prompt.RandomPrompt();
-    // not sure what's wrong here
-    public string _entryText = Console.ReadLine();
-
-    public void DisplayEntry(/*DateTime _dateTime, Prompt _randomPrompt, string _entryText*/)
+    public string DisplayEntry()
     {
-        Console.WriteLine($"{_dateTime} --- {_randomPrompt} \n{_entryText}");
+        Console.WriteLine($"~{_date} --- {_prompt} \n{_entryText}");
+        return $"~{_date} --- {_prompt} \n{_entryText}";
     }
 }

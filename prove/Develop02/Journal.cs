@@ -12,10 +12,16 @@ public class Journal
         }
     } 
 
-    public void AddEntry()
+    public void AddEntry(Entry bigManInTheBack)
     {
-        // public Entry _newEntry = new Entry(); 
-        // public Entry
+        _entries.Add(bigManInTheBack);  
+        // Entry placeHolderName = new Entry();
+        // Console.WriteLine($"{placeHolderName._prompt}\n>");
+        // placeHolderName._entryText = Console.ReadLine();
+
+        // journal1.AddEntry(placeHolderName);
+
+        //     Console.WriteLine(placeHolderName);  
     }
 
     public void SaveToFile()
