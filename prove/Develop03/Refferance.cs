@@ -45,7 +45,7 @@ public class Refferance
        _verseEnd = endVerse;
     }
 
-    public string GetReffeance()
+    public string GetRefferance()
     {
         return $"{_book} {_chapter}:{_verseStart}{_verseEnd}";
     }

@@ -10,10 +10,10 @@ public class Scripture
         _bookPlace.AddRefferance(book, chapter, startVerse, endVerse);
     }
 
-    public string ReturnReffeance()
+    public string GetRefferance()
     {
         
-        return _bookPlace.GetReffeance();
+        return _bookPlace.GetRefferance();
     }
 
     public void SetWords(string words)
@@ -26,7 +26,7 @@ public class Scripture
     //     return _verses.GetScripture();
     // }
    
-   public Array GetWords()
+   public string[] GetWords()
     {
         return _verses.GetScripture();
     }
@@ -34,7 +34,7 @@ public class Scripture
     public int RandomWord()
     {
         Random rando = new Random( );
-        return rando.Next(_verses.FindDictRange());
+        return rando.Next(_verses.FindLength());
     }
 
 }

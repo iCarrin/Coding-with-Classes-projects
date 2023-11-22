@@ -14,7 +14,7 @@ public class Word
 
     // private Dictionary<int, string> _words = new Dictionary<int, string> ();
     
-    private Array _words ;
+    private string[] _words;
     // public void AddScripture(string script)
     // {
     //     int count = 0;  
@@ -38,18 +38,14 @@ public class Word
     //     return _words;
     // }
 
-    public Array GetScripture()
+    public string[] GetScripture()
     {
         return _words;
     }
-    public int FindDictRange ()
-    {
-        int count = 0;
-        foreach ( KeyValuePair <int, string> k in _words)
-        {
-            count += 1;
-        }
+    
 
-        return count;
+    public int FindLength ()
+    {
+       return _words.Length;
     }
 }

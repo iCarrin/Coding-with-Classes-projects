@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
 
 class Program
@@ -29,25 +30,65 @@ class Program
         faith.SetWords("And now as I said concerning faith— faith is not to have a perfect knowledge of things; therefore if ye have faith ye hope for things which are not seen, which are true.");
 
         
-        List<string> _verseList = new List<string>();
-        _verseList.Add("WorkAndGlory");
-        _verseList.Add("tenCommand");
-        _verseList.Add("nobalAndGreat");
-        _verseList.Add("chooseYeThisDay");
-        _verseList.Add("faith");
+        Dictionary<int, Scripture> _verseList = new Dictionary<int, Scripture>();
+        _verseList.Add(1, WorkAndGlory);
+        _verseList.Add(2, tenCommand);
+        _verseList.Add(3, nobalAndGreat);
+        _verseList.Add(4, chooseYeThisDay);
+        _verseList.Add(5, faith);
                
         
-        Random r = new Random();
-        int _verseNum = r.Next((_verseList).Count);
-        String _todayVerse = _verseList[_verseNum];
+        int count = 0;
+        foreach ( var k in _verseList)
+        {
+            count += 1;
+        }
+
+        
        
 
-        int wordCount = 100;
-        string key = "";
-        
-        while(wordCount >0 || key == "quit")
-        {
+        Random r = new Random();
+        int _verseNum = r.Next(count);
+        Scripture _todayVerse = _verseList[_verseNum];
+       
 
+        
+        string key = "";
+        string[] text = _todayVerse.GetWords();
+        int textLength = text.Length;
+        string[] blanks = new string[textLength];
+        int wordCount = textLength;
+        Random takeAway = new Random();
+        
+        while(wordCount > 0 || key != "quit")
+        {
+            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
+            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
+            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
+
+            Console.Write($"{_todayVerse.GetRefferance}");
+            for (int i = 0; i < text.Length; i++)
+            {
+            
+                if (!blanks.Contains(text[i]))
+                {
+                    Console.Write($"{text[i]} ");
+                }
+                else if (blanks.Contains(text[i]))
+                {
+                    int spaces = text[i].Length;
+                    string result = new string('_' , spaces);
+                    Console.Write($"{result} ");
+
+                }
+                else
+                {
+                    Console.WriteLine ("You broke it some how");
+                }
+                wordCount -= 3;
+            }
+
+            key = Console.ReadLine();
         }
     }
 }
