@@ -25,24 +25,24 @@ public class Refferance
         _book = book;
         _chapter = chapter;
         _verseStart = startVerse;
-        if (endVerse != "")
-        {
-            _verseEnd = $"-{endVerse}";
-        }
-        else
-        {
-            _verseEnd ="";
-        }
+        _verseEnd = endVerse;
         
     }
 
     
-     public void AddRefferance(string book, string chapter, string startVerse, string endVerse = "")
+     public void AddRefferance(string book, string chapter, string startVerse, string endVerse)
     {
        _book = book;
        _chapter = chapter;
        _verseStart = startVerse;
-       _verseEnd = endVerse;
+       if (endVerse == "")
+        {
+            _verseEnd ="";
+        }
+        else
+        {
+            _verseEnd = $"-{endVerse}"; 
+        }
     }
 
     public string GetRefferance()

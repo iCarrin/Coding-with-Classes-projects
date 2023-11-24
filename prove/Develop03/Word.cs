@@ -29,7 +29,7 @@ public class Word
     
     public void AddScripture(string script)
     {  
-        string[] _words = script.Split();
+        _words = script.Split(" ");
 
     }
 

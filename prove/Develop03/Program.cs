@@ -31,11 +31,11 @@ class Program
 
         
         Dictionary<int, Scripture> _verseList = new Dictionary<int, Scripture>();
-        _verseList.Add(1, WorkAndGlory);
-        _verseList.Add(2, tenCommand);
-        _verseList.Add(3, nobalAndGreat);
-        _verseList.Add(4, chooseYeThisDay);
-        _verseList.Add(5, faith);
+        _verseList.Add(0, WorkAndGlory);
+        _verseList.Add(1, tenCommand);
+        _verseList.Add(2, nobalAndGreat);
+        _verseList.Add(3, chooseYeThisDay);
+        _verseList.Add(4, faith);
                
         
         int count = 0;
@@ -49,24 +49,26 @@ class Program
 
         Random r = new Random();
         int _verseNum = r.Next(count);
-        Scripture _todayVerse = _verseList[_verseNum];
-       
 
+                
+        Scripture _todayVerse = _verseList[_verseNum];
+        
+
+        
         
         string key = "";
         string[] text = _todayVerse.GetWords();
+        
+       
         int textLength = text.Length;
         string[] blanks = new string[textLength];
         int wordCount = textLength;
         Random takeAway = new Random();
         
-        while(wordCount > 0 || key != "quit")
+        while(wordCount > 0 )
         {
-            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
-            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
-            blanks[takeAway.Next(textLength)] =  text[takeAway.Next(textLength)];
-
-            Console.Write($"{_todayVerse.GetRefferance}");
+            wordCount = textLength;
+            Console.Write($"{_todayVerse.GetRefferance()} ");
             for (int i = 0; i < text.Length; i++)
             {
             
@@ -79,16 +81,35 @@ class Program
                     int spaces = text[i].Length;
                     string result = new string('_' , spaces);
                     Console.Write($"{result} ");
+                    wordCount -= 1;
 
                 }
                 else
                 {
                     Console.WriteLine ("You broke it some how");
                 }
-                wordCount -= 3;
+
+                
             }
 
+            int numRan = takeAway.Next(textLength);
+            blanks[numRan] =  text[numRan];
+            numRan = takeAway.Next(textLength);
+            blanks[numRan] =  text[numRan];
+            numRan = takeAway.Next(textLength);
+            blanks[numRan] =  text[numRan];
+            
+            
+
+            
+
             key = Console.ReadLine();
+            if (key == "quit" || key == "Quit")
+            {
+                wordCount = 0;
+            }
+
+            Console.Clear();
         }
     }
 }
